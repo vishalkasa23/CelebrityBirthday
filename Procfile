@@ -1,1 +1,1 @@
-web: gunicorn celeb:app
+web: gunicorn celeb:app --log-file -
