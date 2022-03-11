@@ -14,14 +14,14 @@ def birthday():
     var = day+"-"+month
     for i in range(len(df['Celebrity'])):
         if(df['Birthday'][i]==var):
-            ls.append(df['Celebrity'][i])
             if(st==''):
                 st=st+df['Celebrity'][i]
             else:
                 st=st+','+df['Celebrity'][i]         
     if(st==''):
         st="You are Unique"
-    jsonString = json.dumps(st)
+    ls.append(st)
+    jsonString = json.dumps(ls)
     return jsonString
 if(__name__=='__main__'):
     app.run(port=7777)
