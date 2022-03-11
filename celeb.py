@@ -15,7 +15,10 @@ def birthday():
     for i in range(len(df['Celebrity'])):
         if(df['Birthday'][i]==var):
             ls.append(df['Celebrity'][i])
-            st=st+df['Celebrity'][i]
+            if(st==''):
+                st=st+df['Celebrity'][i]
+            else:
+                st=st+','+df['Celebrity'][i]         
     if(st==''):
         st="You are Unique"
     jsonString = json.dumps(st)
