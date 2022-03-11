@@ -7,6 +7,7 @@ app=Flask(__name__)
 def birthday():
     df= pd.read_csv("data.csv",encoding="latin")
     ls=list()
+    st=''
     x = datetime.datetime.now()
     month=x.strftime("%b")
     day=x.strftime("%d")
@@ -14,9 +15,10 @@ def birthday():
     for i in range(len(df['Celebrity'])):
         if(df['Birthday'][i]==var):
             ls.append(df['Celebrity'][i])
-    if(len(ls)==0):
-        ls.append("You are Unique")
-    jsonString = json.dumps(ls)
+            st=st+df['Celebrity'][i]
+    if(st==''):
+        st="You are Unique"
+    jsonString = json.dumps(st)
     return jsonString
 if(__name__=='__main__'):
     app.run(port=7777)
